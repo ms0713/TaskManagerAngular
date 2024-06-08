@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.AppRoutingModule = exports.routes = void 0;
 var router_1 = require("@angular/router");
-var dashboard_component_1 = require("./dashboard/dashboard.component");
-var about_component_1 = require("./about/about.component");
+var dashboard_component_1 = require("./admin/dashboard/dashboard.component");
+var about_component_1 = require("./admin/about/about.component");
 var core_1 = require("@angular/core");
+var projects_component_1 = require("./admin/projects/projects.component");
 exports.routes = [
     {
         path: 'dashboard',
@@ -19,6 +20,10 @@ exports.routes = [
     {
         path: 'about',
         component: about_component_1.AboutComponent
+    },
+    {
+        path: 'projects',
+        component: projects_component_1.ProjectsComponent
     }
 ];
 var AppRoutingModule = /** @class */ (function () {

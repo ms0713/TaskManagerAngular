@@ -10,7 +10,8 @@ exports.DashboardComponent = void 0;
 var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(dashboardService) {
+        this.dashboardService = dashboardService;
         this.designation = "";
         this.username = "";
         this.noOfTeamMembers = 0;
@@ -45,28 +46,7 @@ var DashboardComponent = /** @class */ (function () {
         for (var index = 2024; index > 2020; index--) {
             this.years.push(index);
         }
-        this.teamMembersSummary = [
-            {
-                Region: 'East',
-                TeamMembersCount: 20,
-                TemporarilyUnavailableMembers: 4
-            },
-            {
-                Region: 'West',
-                TeamMembersCount: 15,
-                TemporarilyUnavailableMembers: 8
-            },
-            {
-                Region: 'South',
-                TeamMembersCount: 17,
-                TemporarilyUnavailableMembers: 1
-            },
-            {
-                Region: 'North',
-                TeamMembersCount: 15,
-                TemporarilyUnavailableMembers: 6
-            },
-        ];
+        this.teamMembersSummary = this.dashboardService.getTeamMembersSummary();
         this.teamMembers = [
             {
                 Region: 'East',

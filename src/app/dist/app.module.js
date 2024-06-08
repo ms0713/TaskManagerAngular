@@ -10,25 +10,21 @@ exports.AppModule = void 0;
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
-var dashboard_component_1 = require("./dashboard/dashboard.component");
-var about_component_1 = require("./about/about.component");
 var app_routes_1 = require("./app.routes");
-var common_1 = require("@angular/common");
+var admin_module_1 = require("./admin/admin.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                app_component_1.AppComponent,
-                dashboard_component_1.DashboardComponent,
-                about_component_1.AboutComponent
+                app_component_1.AppComponent
                 // other components go here
             ],
             imports: [
                 platform_browser_1.BrowserModule,
-                common_1.CommonModule,
-                app_routes_1.AppRoutingModule
+                app_routes_1.AppRoutingModule,
+                admin_module_1.AdminModule
                 // other modules go here
             ],
             providers: [],
