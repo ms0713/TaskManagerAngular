@@ -11,12 +11,22 @@ var core_1 = require("@angular/core");
 var ProjectsService = /** @class */ (function () {
     function ProjectsService(httpClient) {
         this.httpClient = httpClient;
+        this.urlPrefix = "http://localhost:5219";
     }
     ProjectsService.prototype.getAllProjects = function () {
-        return this.httpClient.get("http://localhost:5219/api/projects");
+        return this.httpClient.get(this.urlPrefix + "/api/projects");
     };
     ProjectsService.prototype.insertProject = function (newProject) {
-        return this.httpClient.post("http://localhost:5219/api/projects", newProject);
+        return this.httpClient.post(this.urlPrefix + "/api/projects", newProject);
+    };
+    ProjectsService.prototype.updateProject = function (existingProject) {
+        return this.httpClient.put(this.urlPrefix + "/api/projects", existingProject);
+    };
+    ProjectsService.prototype.deleteProject = function (projectId) {
+        return this.httpClient["delete"](this.urlPrefix + "/api/projects?projectId=" + projectId);
+    };
+    ProjectsService.prototype.SearchProjects = function (searchBy, searchText) {
+        return this.httpClient.get(this.urlPrefix + '/api/projects/search/?searchBy=' + searchBy + '&searchText=' + searchText, { responseType: 'json' });
     };
     ProjectsService = __decorate([
         core_1.Injectable({

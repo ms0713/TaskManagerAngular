@@ -13,6 +13,7 @@ var dashboard_component_1 = require("./dashboard/dashboard.component");
 var about_component_1 = require("./about/about.component");
 var my_profile_component_1 = require("./my-profile/my-profile.component");
 var dashboard_service_1 = require("../dashboard.service");
+var projects_component_1 = require("./projects/projects.component");
 var AdminModule = /** @class */ (function () {
     function AdminModule() {
     }
@@ -21,12 +22,13 @@ var AdminModule = /** @class */ (function () {
             declarations: [
                 dashboard_component_1.DashboardComponent,
                 about_component_1.AboutComponent,
-                my_profile_component_1.MyProfileComponent
+                my_profile_component_1.MyProfileComponent,
+                projects_component_1.ProjectsComponent
             ],
             imports: [
                 common_1.CommonModule
             ],
-            exports: [dashboard_component_1.DashboardComponent, my_profile_component_1.MyProfileComponent, about_component_1.AboutComponent],
+            exports: [dashboard_component_1.DashboardComponent, my_profile_component_1.MyProfileComponent, about_component_1.AboutComponent, projects_component_1.ProjectsComponent],
             providers: [dashboard_service_1.DashboardService]
         })
     ], AdminModule);

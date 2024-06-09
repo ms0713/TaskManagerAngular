@@ -6,7 +6,9 @@ import { Project } from './project';
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectsService {
+export class ProjectsService 
+{
+  urlPrefix: string = "http://localhost:5219"; 
 
   constructor(private httpClient : HttpClient) 
   {
@@ -15,11 +17,29 @@ export class ProjectsService {
 
   getAllProjects() : Observable<Project[]>
   {
-    return this.httpClient.get<Project[]>("http://localhost:5219/api/projects");
+    return this.httpClient.get<Project[]>(this.urlPrefix + "/api/projects");
   }
 
   insertProject(newProject : Project) : Observable<Project>
   {
-    return this.httpClient.post<Project>("http://localhost:5219/api/projects", newProject);
+    return this.httpClient.post<Project>(this.urlPrefix + "/api/projects", newProject);
+  }
+
+  updateProject(existingProject : Project) : Observable<Project>
+  {
+    return this.httpClient.put<Project>(this.urlPrefix + "/api/projects", existingProject);
+  }
+  deleteProject(projectId : number) : Observable<string>
+  {
+    return this.httpClient.delete<string>(this.urlPrefix + "/api/projects?projectId=" + projectId);
+  }
+
+  
+  SearchProjects(searchBy: string, searchText: string): Observable<Project[]>
+  {
+    return this.httpClient.get<Project[]>(
+      this.urlPrefix + '/api/projects/search/?searchBy=' + searchBy + '&searchText=' + searchText,
+      { responseType: 'json' }
+    );
   }
 }
