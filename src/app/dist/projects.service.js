@@ -14,7 +14,10 @@ var ProjectsService = /** @class */ (function () {
         this.urlPrefix = "http://localhost:5219";
     }
     ProjectsService.prototype.getAllProjects = function () {
-        return this.httpClient.get(this.urlPrefix + "/api/projects");
+        // var httpHeader = new HttpHeaders();
+        // httpHeader = httpHeader.set("Authorization","Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjZlZmE5ODQxLTBiMjktNDdjNS04OGZmLTdhZDIwNjJkYWE4NyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzE4MjYxMTQ4LCJleHAiOjE3MTgyODk5NDgsImlhdCI6MTcxODI2MTE0OH0.1XJUTMPdU6j0LzNWIHcbERXkcoM66Ag7aLRLcFxkHp4");
+        // console.log(httpHeader);
+        return this.httpClient.get(this.urlPrefix + "/api/projects", { responseType: 'json' });
     };
     ProjectsService.prototype.insertProject = function (newProject) {
         return this.httpClient.post(this.urlPrefix + "/api/projects", newProject);
